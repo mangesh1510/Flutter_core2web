@@ -1,0 +1,220 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyHomeApp());
+}
+
+class MyHomeApp extends StatefulWidget {
+  @override
+  State createState() {
+    return MyHomeAppState();
+  }
+}
+
+class MyHomeAppState extends State {
+  bool isRented = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: const Color.fromARGB(57, 91, 87, 87),
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(57, 91, 87, 87),
+          leading: Icon(Icons.chevron_left, color: Colors.black, size: 50),
+          centerTitle: true,
+          title: Text(
+            "Details",
+            style: TextStyle(color: Colors.black, fontSize: 30),
+          ),
+        ),
+        body: Column(
+          children: [
+            Container(
+              height: 270,
+              margin: EdgeInsets.only(left: 30, top: 15, right: 30),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(35),
+                image: DecorationImage(
+                  image: NetworkImage("https://thumbs.dreamstime.com/b/big-house-front-view-grass-bench-tree-6578532.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              margin: EdgeInsets.only(left: 30),
+              child: Row(
+                children: [
+                  Text(
+                    "Night Hill Villa",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 380),
+              child: Row(
+                children: [
+                  Text(
+                    "\$5900 ",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.blue),
+                  ),
+                  Text(
+                    "/Month",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30),
+              child: Row(
+                children: [
+                  Text(
+                    "London,Night Hill",
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 15, top: 20, bottom: 10),
+                  margin: EdgeInsets.only(left: 30),
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(children: [Icon(Icons.chair)]),
+                      SizedBox(height: 10),
+                      Row(children: [Text("Bedrooms")]),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Text(
+                            "5",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 15, top: 20, bottom: 10),
+                  margin: EdgeInsets.only(left: 30),
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(children: [Icon(Icons.bathtub, size: 25)]),
+                      SizedBox(height: 10),
+                      Row(children: [Text("Bathrooms")]),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Text(
+                            "6",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 15, top: 20, bottom: 10),
+                  margin: EdgeInsets.only(left: 30),
+                  height: 130,
+                  width: 130,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(children: [Icon(Icons.square_foot_sharp)]),
+                      SizedBox(height: 10),
+                      Row(children: [Text("Square ft")]),
+                      SizedBox(height: 10),
+                      Row(
+                        children: [
+                          Text(
+                            "7,000 sq ft",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30, top: 15, right: 16),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text("Amet minim mollit non deserunt ullamco est sit aliqua dolor do amttj "),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("velit aloefeg this ameg brsdf vgth dsfre enit sldmg dgoen grgld dgfro "),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Amet minim mollit non deserunt ullamco est sit aliqua dolor do amttj  "),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isRented = true;
+                          });
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            color: isRented ? Colors.green : Colors.blue,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Center(
+                            child: Text(
+                              isRented ? 'Done' : 'Rent Now',
+                              style: TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
